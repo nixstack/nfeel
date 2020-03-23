@@ -1,0 +1,20 @@
+version: '2'
+services:
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile.nginx
+    ports:
+      - '80:80'
+    command: nginx -g "daemon off";
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: packages/server
+      dockerfile: Dockerfile.server
+    #image: server:1.0
+    expose:
+      - '3000'
+    command: npm start
