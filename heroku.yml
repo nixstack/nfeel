@@ -2,3 +2,5 @@ build:
   docker:
     # nginx: nginx/Dockerfile.nginx
     server: packages/server/Dockerfile.server
+run:
+  server: npm start
