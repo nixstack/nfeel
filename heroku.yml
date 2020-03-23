@@ -1,4 +1,4 @@
 build:
   docker:
-    nginx: nginx/Dockerfile.ngix
+    nginx: nginx/Dockerfile.nginx
     server: packages/server/Dockerfile.server
