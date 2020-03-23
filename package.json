@@ -5,5 +5,7 @@
   "devDependencies": {
     "lerna": "^2.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  }
 }
