@@ -1,1 +1,1 @@
-server: bin/start-nginx npm start
+web: bin/start-nginx lerna run start:heroku
