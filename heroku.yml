@@ -1,3 +1,6 @@
+setup:
+  config:
+    PORT: 3000
 build:
   docker:
     # nginx: nginx/Dockerfile.nginx
