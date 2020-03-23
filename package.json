@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start:heroku": "node packages/server/index.heroku.js"
+    "start:heroku": "node packages/server/src/index.heroku.js"
   },
   "devDependencies": {
     "lerna": "^2.11.0"
