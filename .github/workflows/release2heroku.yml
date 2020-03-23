@@ -20,4 +20,4 @@ jobs:
       - name: Release
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release web -a nfeel
+        run: heroku container:release nginx server -a nfeel
