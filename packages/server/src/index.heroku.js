@@ -1,12 +1,9 @@
-import * as fs from 'fs'
+const fs = require('fs')
 
 // let ngnix know we want to start serving from the proxy
 fs.openSync('/tmp/app-initialized', 'w')
 
-const server = require('http').createServer(function(
-  req: any,
-  res: { writeHead: (arg0: number) => void; end: (arg0: string) => void }
-) {
+const server = require('http').createServer(function(req, res) {
   res.writeHead(200)
   res.end('hello world')
 })
@@ -20,26 +17,22 @@ server.listen('/tmp/nginx.socket', function() {
   console.info(`server up`)
 })
 
-io.on('connect_error', function(err: any) {
+io.on('connect_error', function(err) {
   console.error(err)
 })
 
-io.on('connect_timeout', function(err: any) {
+io.on('connect_timeout', function(err) {
   console.error(err)
 })
 
-io.on('connection', function(socket: {
-  id: any
-  on: (arg0: string, arg1: { (): void; (message: any): void }) => void
-  emit: (arg0: string, arg1: { message: any }) => void
-}) {
+io.on('connection', function(socket) {
   console.info(`socket: ${socket.id} connected`)
 
   socket.on('disconnect', function() {
     console.info('disconnected')
   })
 
-  // socket.on('login', (message: any) => {
-  //   socket.emit('login', { message: message })
-  // })
+  socket.on('login', message => {
+    socket.emit('login', { message: message })
+  })
 })
