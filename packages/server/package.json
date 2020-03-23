@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "tsc && node dist/index.js",
+    "start:heroku": "tsc && node dist/index.heroku.js",
     "build": "tsc",
     "dev": "concurrently --kill-others \"tsc -w\" \"nodemon dist/index.js\""
   },
