@@ -1,8 +1,30 @@
+upstream web {
+  server $HEROKU_APP_WEB_URL;
+}
+
+upstream api {
+  server $HEROKU_APP_API_URL;
+}
+
+
 server {
   listen $PORT default_server;
 
   location / {
-      root /opt/public;
-      index index.html;
+      proxy_pass http://web;
+      proxy_set_header Host $HEROKU_APP_WEB_URL;
+  }
+
+  location /api/ {
+      proxy_set_header Host $http_host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Scheme $scheme;
+      proxy_set_header X-Real-IP	$remote_addr;
+      proxy_set_header X-Forwarded-For	$proxy_add_x_forwarded_for;
+      proxy_redirect off;
+      proxy_connect_timeout 20;
+      proxy_read_timeout 20;
+      proxy_pass http://api;
+      proxy_set_header Host $HEROKU_APP_API_URL;
   }
 }
