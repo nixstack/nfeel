@@ -1,6 +1,6 @@
 build:
   docker:
-    web: nginx/Dockerfile
+    web: nginx/Dockerfile.web
     #server: packages/server/Dockerfile
 # run:
 #   server: npm run start
