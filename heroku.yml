@@ -5,5 +5,5 @@ build:
   docker:
     web: nginx/Dockerfile
     server: packages/server/Dockerfile
-#run:
-#web: nginx -g "daemon off;"
+run:
+  server: npm run start
