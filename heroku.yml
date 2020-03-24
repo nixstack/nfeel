@@ -3,7 +3,7 @@ setup:
     PORT: 3000
 build:
   docker:
-    # nginx: nginx/Dockerfile.nginx
-    web: packages/server/Dockerfile
+    nginx: nginx/Dockerfile
+    #web: packages/server/Dockerfile
 run:
-  web: npm run start
+  web: nginx -g "daemon off";
