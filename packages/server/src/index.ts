@@ -1,6 +1,6 @@
 import App from './app'
 
-const port = parseInt(process.env.PORT || '3000')
+const port = 9393
 
 const server = new App()
   .start(port)
