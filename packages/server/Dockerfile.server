@@ -3,11 +3,11 @@ FROM node:alpine
 #docker-compose run server bash Error: Cannot find module '/opt/server/bash'
 #docker-compose run server sh 
 
-COPY src server/src
-COPY package.json server/package.json
-COPY tsconfig.json server/tsconfig.json
+COPY src app/src
+COPY package.json app/package.json
+COPY tsconfig.json app/tsconfig.json
 
-WORKDIR server
+WORKDIR app
 
 RUN npm install --registry=http://registry.npm.taobao.org
 
