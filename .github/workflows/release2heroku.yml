@@ -16,8 +16,8 @@ jobs:
       - name: Build and push
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:push --recursive -a nfeel
+        run: heroku container:push web -a nfeel
       - name: Release
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release server -a nfeel
+        run: heroku container:release web -a nfeel
