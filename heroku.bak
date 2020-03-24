@@ -1,9 +1,0 @@
-setup:
-  config:
-    PORT: 3000
-build:
-  docker:
-    # nginx: nginx/Dockerfile.nginx
-    server: packages/server/Dockerfile.server
-run:
-  server: bin/start-nginx npm run start:heroku
