@@ -4,6 +4,6 @@ setup:
 build:
   docker:
     # nginx: nginx/Dockerfile.nginx
-    web: packages/server/Dockerfile.server
+    server: packages/server/Dockerfile.server
 run:
-  web: bin/start-nginx npm run start:heroku
+  server: bin/start-nginx npm run start:heroku
