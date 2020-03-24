@@ -4,6 +4,6 @@ setup:
 build:
   docker:
     web: nginx/Dockerfile
-    #web: packages/server/Dockerfile
+    server: packages/server/Dockerfile
 #run:
 #web: nginx -g "daemon off;"
